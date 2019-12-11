@@ -1,0 +1,9 @@
+# Debug stuff
+*debug.log
+*error.log
+
+# npm modules
+node_modules
+
+# Secret stuff
+.env

@@ -1,0 +1,23 @@
+{
+  "name": "advent-of-code",
+  "version": "0.0.1",
+  "description": "Solutions for Advent of Code challenges",
+  "main": "index.ts",
+  "repository": "https://github.com/wjhurley/advent-of-code.git",
+  "author": "William Hurley",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/node": "^12.12.14",
+    "eslint": "^6.7.2",
+    "nodemon": "^2.0.1",
+    "tslint": "^5.20.1"
+  }
+}
