@@ -5,7 +5,7 @@ import * as path from 'path';
 
 config();
 
-export const day3Part1 = () => {
+export const day3Part1 = (): number => {
   // First, get the contents of the input file for today's puzzle
   const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER, 'day3.txt');
   const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
@@ -26,7 +26,7 @@ export const day3Part1 = () => {
   return shortestDistance;
 };
 
-export const day3Part2 = () => {
+export const day3Part2 = (): number => {
   // First, get the contents of the input file for today's puzzle
   const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER, 'day3.txt');
   const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');

@@ -46,12 +46,13 @@ export const day2Part1 = (noun: number, verb: number): number => {
 };
 
 export const day2Part2 = (): number => {
+  const outputToFind = 19690720;
   let noun: number;
   let verb: number;
 
   for (let i = 0; i < 100; i++) {
     for (let j = 0; j < 100; j++) {
-      if (day2Part1(i, j) === 19690720) {
+      if (day2Part1(i, j) === outputToFind) {
         noun = i;
         verb = j;
         break;
