@@ -6,7 +6,7 @@ config();
 
 export const day3Part1 = (): number => {
   // First, get the contents of the input file for today's puzzle
-  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER, 'day3.txt');
+  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day3.txt');
   const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
   // Next, let's put every number in the input file into an array
   const input = inputFileContents.split('\n')
@@ -27,7 +27,7 @@ export const day3Part1 = (): number => {
 
 export const day3Part2 = (): number => {
   // First, get the contents of the input file for today's puzzle
-  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER, 'day3.txt');
+  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day3.txt');
   const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
   // Next, let's put every number in the input file into an array
   const input = inputFileContents.split('\n')
@@ -162,7 +162,7 @@ const findShortestSteps = (intersections: number[][], lineA: number[][], lineB: 
 
 const setAllStepsInBetween = (initialPoints: number[][][]): number[][][] => {
   const incrementalPlotPoints = initialPoints.map(line => {
-    const newPlotPointSet = [];
+    const newPlotPointSet: number[][] = [];
 
     for (let step = 1; step < line.length; step++) {
       const startPoint = line[step - 1];

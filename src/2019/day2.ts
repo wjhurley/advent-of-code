@@ -6,7 +6,7 @@ config();
 
 export const day2Part1 = (noun: number, verb: number): number => {
   // First, get the contents of the input file for today's puzzle
-  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER, 'day2.txt');
+  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day2.txt');
   const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
 
   // Next, let's put every number in the input file into an array

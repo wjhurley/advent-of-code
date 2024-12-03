@@ -7,7 +7,7 @@ config();
 
 export const day4Part1 = () => {
   // First, get the contents of the input file for today's puzzle
-  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER, 'day4.txt');
+  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day4.txt');
   const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
   // Next, let's get the start and end numbers from the input file
   const [start, end] = inputFileContents.split('-').map(num => Number(num));
@@ -19,7 +19,7 @@ export const day4Part1 = () => {
 
 export const day4Part2 = () => {
   // First, get the contents of the input file for today's puzzle
-  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER, 'day4.txt');
+  const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day4.txt');
   const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
   // Next, let's get the start and end numbers from the input file
   const [start, end] = inputFileContents.split('-').map(num => Number(num));

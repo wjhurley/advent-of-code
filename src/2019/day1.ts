@@ -51,7 +51,7 @@ const fuelRequiredFuel = (totalMass: number): number => {
 
 const getFileContents = (): string[] => {
     // First, get the contents of the input file for today's puzzle
-    const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER, 'day1.txt');
+    const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day1.txt');
     const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
   
     // Next, let's put every line in the input file into an array
