@@ -7,3 +7,6 @@ node_modules
 
 # Secret stuff
 .env
+
+# Jest coverage reports
+coverage
