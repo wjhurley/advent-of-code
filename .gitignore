@@ -13,3 +13,7 @@ coverage
 
 # IDE stuff
 .idea
+
+# Mac stuff
+.DS_Store
+**/.DS_Store
