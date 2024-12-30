@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 // import * as fs from 'fs';
 // import * as path from 'path';
 
-import { isArrayEqual } from '../2024/day6';
+import { isArrayEqual } from './day6';
 
 config();
 
