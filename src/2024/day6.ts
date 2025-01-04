@@ -21,12 +21,20 @@ const directionMap: Record<string, [number, number]> = {
     up: [ -1, 0 ],
 };
 
-export const isArrayEqual = (arr1: unknown[], arr2: unknown[]): boolean => {
+export const isArrayEqual = (arr1: any[], arr2: any[]): boolean => {
     if (arr1.length !== arr2.length) {
         return false;
     }
 
     for (let i = 0; i < arr1.length; i++) {
+        if (Array.isArray(arr1[i]) && Array.isArray(arr2[i])) {
+            return isArrayEqual(arr1[i], arr2[i]);
+        }
+
+        if (typeof arr1[i] === 'object' && arr1[i] !== null) {
+            throw new Error('Objects are not supported!');
+        }
+
         if (arr1[i] !== arr2[i]) {
             return false;
         }

@@ -130,5 +130,13 @@ describe('day6 tests', () => {
         it('Should return false if the arrays have different lengths', () => {
             expect(isArrayEqual([ 1, 3 ], [ 1, 2, 3 ])).toBe(false);
         });
+
+        it('Should return true for matching nested arrays', () => {
+           expect(isArrayEqual([ [ 1, 3 ] ], [ [ 1, 3 ] ])).toBe(true);
+        });
+
+        it('Should throw an error for arrays of objects (unsupported)', () => {
+            expect(() => isArrayEqual([ { foo: 'bar' } ], [ { foo: 'bar' } ])).toThrow();
+        });
     });
 });
