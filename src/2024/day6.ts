@@ -2,6 +2,11 @@ import { config } from 'dotenv';
 // import * as fs from 'fs';
 // import * as path from 'path';
 
+import {
+    directionMap,
+    isArrayEqual,
+} from '../util';
+
 config();
 
 // const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day6.txt');
@@ -12,35 +17,6 @@ const directionIconMap: Record<string, string> = {
     left: '<',
     right: '>',
     up: '^',
-};
-
-const directionMap: Record<string, [number, number]> = {
-    down: [ 1, 0 ],
-    left: [ 0, -1 ],
-    right: [ 0, 1 ],
-    up: [ -1, 0 ],
-};
-
-export const isArrayEqual = (arr1: any[], arr2: any[]): boolean => {
-    if (arr1.length !== arr2.length) {
-        return false;
-    }
-
-    for (let i = 0; i < arr1.length; i++) {
-        if (Array.isArray(arr1[i]) && Array.isArray(arr2[i])) {
-            return isArrayEqual(arr1[i], arr2[i]);
-        }
-
-        if (typeof arr1[i] === 'object' && arr1[i] !== null) {
-            throw new Error('Objects are not supported!');
-        }
-
-        if (arr1[i] !== arr2[i]) {
-            return false;
-        }
-    }
-
-    return true;
 };
 
 export class Day6Part1 {

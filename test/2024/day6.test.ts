@@ -1,6 +1,5 @@
 import {
     Day6Part1,
-    isArrayEqual,
 } from '../../src/2024/day6';
 
 describe('day6 tests', () => {
@@ -115,28 +114,6 @@ describe('day6 tests', () => {
 ......#...`.trim();
             const day6Part1 = new Day6Part1(testInput);
             expect(day6Part1.positions).toBe(28);
-        });
-    });
-
-    describe('isArrayEqual tests', () => {
-        it('Should return true if both arrays have the same length and values', () => {
-            expect(isArrayEqual([ 1, 3 ], [ 1, 3 ])).toBe(true);
-        });
-
-        it('Should return false if the arrays have different values', () => {
-            expect(isArrayEqual([ 1, 3 ], [ 1, 2 ])).toBe(false);
-        });
-
-        it('Should return false if the arrays have different lengths', () => {
-            expect(isArrayEqual([ 1, 3 ], [ 1, 2, 3 ])).toBe(false);
-        });
-
-        it('Should return true for matching nested arrays', () => {
-           expect(isArrayEqual([ [ 1, 3 ] ], [ [ 1, 3 ] ])).toBe(true);
-        });
-
-        it('Should throw an error for arrays of objects (unsupported)', () => {
-            expect(() => isArrayEqual([ { foo: 'bar' } ], [ { foo: 'bar' } ])).toThrow();
         });
     });
 });

@@ -2,45 +2,15 @@ import { config } from 'dotenv';
 // import * as fs from 'fs';
 // import * as path from 'path';
 
-import { isArrayEqual } from './day6';
+import {
+    directionMap,
+    makeUniqueArray,
+} from '../util';
 
 config();
 
 // const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day10.txt');
 // const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
-
-const directionMap: Record<string, [number, number]> = {
-    down: [ 1, 0 ],
-    left: [ 0, -1 ],
-    right: [ 0, 1 ],
-    up: [ -1, 0 ],
-};
-
-export const makeUniqueArray = <T>(arr: T[]): T[] => {
-    const uniqueArray: T[] = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        const val = arr[i];
-
-        if (Array.isArray(val)) {
-            if (!uniqueArray.some(v => Array.isArray(v) && isArrayEqual(val, v))) {
-                uniqueArray.push(val);
-            }
-
-            continue;
-        }
-
-        if (typeof val === 'object' && val !== null) {
-            throw new Error('Objects are not supported!');
-        }
-
-        if (!uniqueArray.some(v => val === v)) {
-            uniqueArray.push(val);
-        }
-    }
-
-    return uniqueArray;
-};
 
 export class Day10Part1 {
     private _scores = 0;

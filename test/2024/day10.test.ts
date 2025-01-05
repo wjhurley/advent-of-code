@@ -1,7 +1,6 @@
 import {
     Day10Part1,
     Day10Part2,
-    makeUniqueArray,
 } from '../../src/2024/day10';
 
 describe('day10 tests', () => {
@@ -62,20 +61,6 @@ describe('day10 tests', () => {
 10456702`.trim();
             const day10Part2 = new Day10Part2(testInput);
             expect(day10Part2.scores).toBe(81);
-        });
-    });
-
-    describe('makeUniqueArray tests', () => {
-        it('Should return a unique array from an array of duplicates', () => {
-            expect(makeUniqueArray([ 1, 2, 3, 3, 4 ])).toEqual([ 1, 2, 3, 4 ]);
-        });
-
-        it('Should return a unique array from an array of nested duplicates', () => {
-            expect(makeUniqueArray([ [ 1 ], [ 2] , [ 3 ], [ 3 ], [ 4 ] ])).toEqual([ [ 1 ], [ 2] , [ 3 ], [ 4 ] ]);
-        });
-
-        it('Should return a unique array from an array of duplicates', () => {
-            expect(() => makeUniqueArray([ { foo: 'bar' }, { foo: 'bar' } ])).toThrow();
         });
     });
 });
