@@ -1,8 +1,22 @@
+export const directionIconMap: Record<string, string> = {
+    down: 'v',
+    left: '<',
+    right: '>',
+    up: '^',
+};
+
 export const directionMap: Record<string, [number, number]> = {
     down: [ 1, 0 ],
     left: [ 0, -1 ],
     right: [ 0, 1 ],
     up: [ -1, 0 ],
+};
+
+export const directionIconDirectionMap: Record<string, [number, number]> = {
+    [directionIconMap.down]: directionMap.down,
+    [directionIconMap.left]: directionMap.left,
+    [directionIconMap.right]: directionMap.right,
+    [directionIconMap.up]: directionMap.up,
 };
 
 export const isArrayEqual = (arr1: any[], arr2: any[]): boolean => {

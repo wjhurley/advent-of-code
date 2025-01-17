@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 // import * as path from 'path';
 
 import {
+    directionIconMap,
     directionMap,
     isArrayEqual,
 } from '../util';
@@ -11,13 +12,6 @@ config();
 
 // const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day6.txt');
 // const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
-
-const directionIconMap: Record<string, string> = {
-    down: 'v',
-    left: '<',
-    right: '>',
-    up: '^',
-};
 
 export class Day6Part1 {
     private _positions = 0;
