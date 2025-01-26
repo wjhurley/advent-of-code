@@ -1,85 +1,47 @@
 import { config } from 'dotenv';
 import * as fs from 'fs';
-import * as path from 'path';
 
 config();
 
-export class Day2Part2 {
-    private readonly input: number[];
+export const day2Part1 = (noun: number, verb: number): number => {
+    const inputFileContents = fs.readFileSync('/Users/williamhurley/Projects/advent-of-code/input/2019/day2.txt', 'utf-8');
+    const input = inputFileContents
+        .split(',')
+        .filter(val => val !== '')
+        .map(Number);
 
-    private readonly outputToFind: number;
+    input[1] = noun;
+    input[2] = verb;
 
-    private tempInput: number[];
-
-    constructor(outputToFind: number) {
-        // First, get the contents of the input file for today's puzzle
-        const inputFilePath = path.join(__dirname, '../../input/2019/day2.txt');
-        const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
-
-        // Next, let's put every number in the input file into an array
-        this.input = inputFileContents
-            .split(',')
-            .filter(val => val !== '')
-            .map(Number);
-
-        this.outputToFind = outputToFind;
-    }
-
-    private day2Part1(noun: number, verb: number): number {
-        this.tempInput = [ ...this.input ];
-
-        // Restore program to "1202 program alarm"
-        this.tempInput[1] = noun;
-        this.tempInput[2] = verb;
-
-        for (let i = 0; i < this.tempInput.length; i += 4) {
-            const isProgramFinished = this.handleIntcodeProgram(this.tempInput.slice(i, i + 4));
-
-            if (isProgramFinished) {
-                break;
-            }
-        }
-
-        return this.tempInput[0];
-    }
-
-    private handleIntcodeProgram(slice: number[]): boolean {
-        const [
-            opcode,
-            firstPos,
-            secondPos,
-            outputPos,
-        ] = slice;
+    for (let i = 0; i < input.length; i += 4) {
+        const opcode = input[i];
+        const firstPos = input[i + 1];
+        const secondPos = input[i + 2];
+        const outputPos = input[i + 3];
 
         if (opcode === 99) {
-            return true;
+            break;
         }
 
-        const firstVal = this.tempInput[firstPos];
-        const secondVal = this.tempInput[secondPos];
+        const firstVal = input[firstPos];
+        const secondVal = input[secondPos];
 
-        this.tempInput[outputPos] = opcode === 1
+        input[outputPos] = opcode === 1
             ? firstVal + secondVal
             : firstVal * secondVal;
-
-        return false;
     }
 
-    public get output(): number {
-        let noun: number;
-        let verb: number;
+    return input[0];
+};
 
-        for (let i = 0; i < 100; i++) {
-            for (let j = 0; j < 100; j++) {
-                if (this.day2Part1(i, j) === this.outputToFind) {
-                    noun = i;
-                    verb = j;
-
-                    return noun * 100 + verb;
-                }
+export const day2Part2 = (outputToFind: number): number => {
+    for (let i = 0; i < 100; i++) {
+        for (let j = 0; j < 100; j++) {
+            if (day2Part1(i, j) === outputToFind) {
+                return i * 100 + j;
             }
         }
-
-        return 0;
     }
-}
+
+    return 0;
+};
