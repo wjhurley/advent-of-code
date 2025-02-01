@@ -1,17 +1,29 @@
 import { config } from 'dotenv';
-import * as fs from 'fs';
+// import * as fs from 'fs';
+// import * as path from 'path';
 
 config();
 
-export const day5Part1 = (inputValue: number): number => {
-    const inputFileContents = fs.readFileSync('/Users/williamhurley/Projects/advent-of-code/input/2019/day5.txt', 'utf-8');
-    const input = inputFileContents
+// const inputFilePath = path.join(process.env.TQ_AOC_INPUT_FOLDER ?? __dirname, 'day5.txt');
+// const inputFileContents = fs.readFileSync(inputFilePath, 'utf-8');
+
+const parseFileContents = (file: string): number[] => {
+    return file
         .split(',')
         .filter(val => val !== '')
         .map(Number);
+};
+
+export const day5Part1 = (fileContents: string, inputValue: number): number => {
+    const input = parseFileContents(fileContents);
     let increment = 0;
 
     for (let i = 0; i < input.length; i += increment) {
+        /* istanbul ignore next */
+        if (input[i] === 99) {
+            break;
+        }
+
         const [
             _parameter3,
             parameter2,
@@ -25,11 +37,6 @@ export const day5Part1 = (inputValue: number): number => {
         let firstVal = 0;
         let secondVal = 0;
         let outputPos = 0;
-
-        /* istanbul ignore next */
-        if (input[i] === 99) {
-            break;
-        }
 
         /* istanbul ignore else */
         if (opCode === '1' || opCode === '2') {
@@ -47,7 +54,7 @@ export const day5Part1 = (inputValue: number): number => {
 
             if (opCode === '3') {
                 input[input[i + 1]] = inputValue;
-            } else if (opCode === '4') {
+            } else {
                 const value = parameter1 === '0'
                     ? input[input[i + 1]]
                     : input[i + 1];
