@@ -17,7 +17,7 @@ describe('day4 tests', () => {
     });
 
     describe('day4Part2 tests', () => {
-        it('Should return the lowest positive number that produces an MD5 hash with 5 leading zeroes 1', () => {
+        it('Should return the lowest positive number that produces an MD5 hash with 6 leading zeroes', () => {
             const testInput = 'abcdef';
             expect(day4Part2(testInput)).toBe(6742839);
         });
