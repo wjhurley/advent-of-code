@@ -38,7 +38,6 @@ export const day5Part1 = (fileContents: string, inputValue: number): number => {
         let secondVal = 0;
         let outputPos = 0;
 
-        /* istanbul ignore else */
         if (opCode === '1' || opCode === '2') {
             increment = 4;
 
@@ -66,7 +65,6 @@ export const day5Part1 = (fileContents: string, inputValue: number): number => {
 
             continue;
         } else {
-            /* istanbul ignore next */
             throw new Error(`Invalid opCode! (Given: ${input[i]}`);
         }
 
@@ -79,10 +77,9 @@ export const day5Part1 = (fileContents: string, inputValue: number): number => {
                 break;
             /* istanbul ignore next */
             default:
-                throw new Error(`Invalid or unsupported opcode (Given: ${opCode})`);
+                throw new Error(`Invalid or unsupported opCode (Given: ${opCode})`);
         }
     }
 
-    /* istanbul ignore next */
     throw new Error('Output value not found!');
 };
