@@ -9,6 +9,7 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "lib": [
+      "es2017",
       "esnext"
     ],
     "module": "commonjs",
