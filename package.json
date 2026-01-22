@@ -14,7 +14,7 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "dotenv": "^8.2.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "ts-node": "^8.5.4",
     "typescript": "^5.7.2"
   },
